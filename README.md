@@ -26,6 +26,7 @@ cat ~/YOUR_FILE_NAME | clickhouse-client --query="INSERT INTO YOUR_TABLE_NAME FO
 Для того, что бы променять пачку файлов, можно воспользоваться внешним скриптом
 (исходные файлы лежат в ./transf, новые будут складываться в ./res)
 
+```
 import re
 import subprocess
 from os import listdir
@@ -40,5 +41,5 @@ for f in [f for f in listdir(mypath) if isfile(join(mypath, f))]:
     print("Обработка файла {0}".format( f) )
     conv = XLSXConverter(source_file, dest_file, raw_date_fields = [13])
     conv.convert()
-
+```
 
