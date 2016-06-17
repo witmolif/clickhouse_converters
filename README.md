@@ -6,7 +6,7 @@
 
 ```
 conv = XLSXConverter(INPUT_FILE, DEST_FILE, raw_date_fields = [13], empty_numbers = [12,17,19], empty_strings=[20])
-conv.convert()**
+conv.convert()
 ```
 
 где 
