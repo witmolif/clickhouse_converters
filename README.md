@@ -4,16 +4,24 @@
 
 Пример использования - 
 
-conv = XLSXConverter("./31_05_2016.xlsx", "./31_05_2016.txt", raw_date_fields = [13], empty_numbers = [12,17,19], empty_strings=[20])
-conv.convert()
+```
+conv = XLSXConverter(INPUT_FILE, DEST_FILE, raw_date_fields = [13], empty_numbers = [12,17,19], empty_strings=[20])
+conv.convert()**
+```
 
-raw_date_strings - номер(а) колонки (начиная с нуля), где стоит дата в формате 43123 
-empty_numbers - номер(а) колонок, где указываются цифры, но может быть и пустая колонка, тогда там поставим 0
-empty_strings - номер(а) колонок, где пустая ячейка будет заменена на " "
+где 
+
+**raw_date_strings** - номер(а) колонки (начиная с нуля), где стоит дата в формате 43123 
+
+**empty_numbers** - номер(а) колонок, где указываются цифры, но может быть и пустая колонка, тогда там поставим 0
+
+**empty_strings** - номер(а) колонок, где пустая ячейка будет заменена на " "
 
 
 Заливка в базу может быть осуществлена командой
+```
 cat ~/YOUR_FILE_NAME | clickhouse-client --query="INSERT INTO YOUR_TABLE_NAME FORMAT TabSeparatedWithNames"
+```
 
 Для того, что бы променять пачку файлов, можно воспользоваться внешним скриптом
 (исходные файлы лежат в ./transf, новые будут складываться в ./res)
